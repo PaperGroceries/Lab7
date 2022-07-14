@@ -21,12 +21,13 @@ class Movie
     int ok_rating;
     int good_rating;
     int great_rating;
+public:
     int addRating(int rating);
     double getAverage();
     string getName();
     string getMPAA();
-    void setMPAA();
-    void setName();
+    void setMPAA(string newMPAA);
+    void setName(string newName);
     
 public:
     Movie ()
@@ -61,10 +62,17 @@ string Movie::getMPAA()
 {
     return MPAA_rating;
 };
-
-
+void Movie::setMPAA( string newMPAA)
+{
+    MPAA_rating = newMPAA;
+}
+void Movie::setName(string newName)
+{
+    movie_name = newName;
+}
 int Movie::addRating(int rating)
 {
+
     //recieve number that corresposnds to rating and add a tick to the something_rating
     if (rating == 1)
     {
@@ -101,6 +109,29 @@ double Movie::getAverage()
 
 int main(int argc, const char * argv[]) {
     // insert code here...
+    
+    Movie movie1("300", "R");
+    movie1.addRating(1);         // Terrible
+    movie1.addRating(1);         // Terrible
+    movie1.addRating(3);         // OK
+    movie1.addRating(3);         // OK
+    movie1.addRating(5);         // Great
+    cout << movie1.getName()<< endl;            // "300",
+    cout << movie1.getMPAA()<< endl;            //  "R";
+    cout << movie1.getAverage() << endl; // 2.6
+
+    Movie movie2;
+    movie2.setName("The GodFather");
+    movie2.setMPAA("PG-13");
+    movie2.addRating(1);         // Terrible
+    movie2.addRating(3);         // Terrible
+    movie2.addRating(5);         // OK
+    movie2.addRating(5);         // OK
+    movie2.addRating(5);         // Great
+    cout << movie2.getName()<< endl;            // "The GodFather"
+    cout << movie2.getMPAA()<< endl;            //"PG-13"
+    cout << movie2.getAverage()<< endl; // 3.8
+    
     std::cout << "Hello, World!\n";
     return 0;
 }
