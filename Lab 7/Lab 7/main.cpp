@@ -133,15 +133,15 @@ double Movie::getAverage()
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    Movie movie1("300", "R");
-    movie1.addRating(1);         // Terrible
+    Movie movie1("Fight Club", "R");
+    movie1.addRating(5);         // Great
     movie1.addRating(1);         // Terrible
     movie1.addRating(3);         // OK
     movie1.addRating(3);         // OK
     movie1.addRating(5);         // Great
-    cout << movie1.getName()<< endl;            // "300",
+    cout << movie1.getName()<< endl;            // "Fight Club",
     cout << movie1.getMPAA()<< endl;            //  "R";
-    cout << movie1.getAverage() << endl; // 2.6
+    cout << movie1.getAverage() << endl; // 3.4
 
     Movie movie2;
     movie2.setName("The GodFather");
