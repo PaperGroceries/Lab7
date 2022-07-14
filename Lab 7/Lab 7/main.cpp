@@ -34,11 +34,11 @@ public:
     {
         movie_name = "Empty";
         MPAA_rating = "Empty";
-        terrible_rating = 0;
-        bad_rating = 0;
-        ok_rating = 0;
-        good_rating = 0;
-        great_rating = 0;
+//        terrible_rating = 0;
+//        bad_rating = 0;
+//        ok_rating = 0;
+//        good_rating = 0;
+//        great_rating = 0;
         for(int i = 0; i < 5; i++)
         {
             arr_rating[i]=0;
@@ -48,11 +48,11 @@ public:
     {
         movie_name = new_name;
         MPAA_rating = new_rating;
-        terrible_rating = 0;
-        bad_rating = 0;
-        ok_rating = 0;
-        good_rating = 0;
-        great_rating = 0;
+//        terrible_rating = 0;
+//        bad_rating = 0;
+//        ok_rating = 0;
+//        good_rating = 0;
+//        great_rating = 0;
         for(int i = 0; i < 5; i++)
         {
             arr_rating[i]=0;
@@ -82,26 +82,26 @@ int Movie::addRating(int rating)
 {
 
     //recieve number that corresposnds to rating and add a tick to the something_rating
-    if (rating == 1)
-    {
-        terrible_rating++;
-    }
-    else if (rating == 2)
-    {
-        bad_rating++;
-    }
-    else if(rating == 3)
-    {
-        ok_rating++;
-    }
-    else if( rating == 4)
-    {
-        good_rating++;
-    }
-    else if( rating == 5)
-    {
-        great_rating++;
-    }
+//    if (rating == 1)
+//    {
+//        terrible_rating++;
+//    }
+//    else if (rating == 2)
+//    {
+//        bad_rating++;
+//    }
+//    else if(rating == 3)
+//    {
+//        ok_rating++;
+//    }
+//    else if( rating == 4)
+//    {
+//        good_rating++;
+//    }
+//    else if( rating == 5)
+//    {
+//        great_rating++;
+//    }
     for (int i = 0;i < 5;i++)
     {
         if (i == (rating - 1))
@@ -113,18 +113,21 @@ int Movie::addRating(int rating)
 }
 double Movie::getAverage()
 {
-    
-    for ( i = 0; i < 5; i++)
+    int sum = 0;
+    int divident = 0;
+    for (int  i = 0; i < 5; i++)
     {
-        
+        sum += arr_rating[i] * (i + 1);
+        divident += arr_rating[i];
     }
-    return (terrible_rating * 1
-             + bad_rating * 2
-             + ok_rating * 3
-             + good_rating * 4
-             + great_rating * 5)
-    /
-    (terrible_rating + bad_rating + ok_rating + good_rating + great_rating * 1.0);
+    return sum/(divident * 1.0);
+//    return (terrible_rating * 1
+//             + bad_rating * 2
+//             + ok_rating * 3
+//             + good_rating * 4
+//             + great_rating * 5)
+//    /
+//    (terrible_rating + bad_rating + ok_rating + good_rating + great_rating * 1.0);
 }
 
 int main(int argc, const char * argv[]) {
@@ -152,6 +155,6 @@ int main(int argc, const char * argv[]) {
     cout << movie2.getMPAA()<< endl;            //"PG-13"
     cout << movie2.getAverage()<< endl; // 3.8
     
-    std::cout << "Hello, World!\n";
+    //std::cout << "Hello, World!\n";
     return 0;
 }
