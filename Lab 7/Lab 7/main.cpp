@@ -22,7 +22,7 @@ class Movie
     int good_rating;
     int great_rating;
     int addRating(int rating);
-    void getAverage();
+    double getAverage();
     string getName();
     string getMPAA();
     void setMPAA();
@@ -88,13 +88,15 @@ int Movie::addRating(int rating)
     }
     return 0;
 }
-void Movie::getAverage()
+double Movie::getAverage()
 {
-    cout << (terrible_rating * 1
+    return (terrible_rating * 1
              + bad_rating * 2
              + ok_rating * 3
              + good_rating * 4
-             + great_rating * 5)/5.0;
+             + great_rating * 5)
+    /
+    (terrible_rating + bad_rating + ok_rating + good_rating + great_rating * 1.0);
 }
 
 int main(int argc, const char * argv[]) {
