@@ -15,7 +15,7 @@ class Movie
 {
     string movie_name;
     string MPAA_rating;
-    int something_rating[5];
+    int arr_rating[5];
     int terrible_rating;
     int bad_rating;
     int ok_rating;
@@ -39,6 +39,10 @@ public:
         ok_rating = 0;
         good_rating = 0;
         great_rating = 0;
+        for(int i = 0; i < 5; i++)
+        {
+            arr_rating[i]=0;
+        }
     };
     Movie (string new_name,string new_rating)
     {
@@ -49,6 +53,10 @@ public:
         ok_rating = 0;
         good_rating = 0;
         great_rating = 0;
+        for(int i = 0; i < 5; i++)
+        {
+            arr_rating[i]=0;
+        }
 
     };
     
@@ -94,10 +102,22 @@ int Movie::addRating(int rating)
     {
         great_rating++;
     }
+    for (int i = 0;i < 5;i++)
+    {
+        if (i == (rating - 1))
+        {
+            arr_rating[i]++;
+        }
+    }
     return 0;
 }
 double Movie::getAverage()
 {
+    
+    for ( i = 0; i < 5; i++)
+    {
+        
+    }
     return (terrible_rating * 1
              + bad_rating * 2
              + ok_rating * 3
